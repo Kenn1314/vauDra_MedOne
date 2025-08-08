@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { insertKeyValue, getValueByKey } = require('../Controllers/keyController');
 
-router.post('/', upsertKeyValue);
+router.post('/', insertKeyValue);
 router.get('/:key', getValueByKey);
 
 
