@@ -18,16 +18,14 @@ app.use(express.json())
 const DB_CONNECTION_URI = process.env.MONGO_DB_URI;
 // console.log("DB_CONNECTION_URI: ", DB_CONNECTION_URI)
 
-mongoose.connect(DB_CONNECTION_URI)
-  .then(() => {
-    console.log("MongoDB connected");
-    app.listen(3000, () => console.log("Server running on port 3000"));
-  })
-  .catch(err => console.error("MongoDB connection error:", err));
-
 
 app.use('/object', keyRoute);
 
-app.listen(port, () => {
-    console.log(`Server is listening at ${port}`)
-})
+mongoose.connect(DB_CONNECTION_URI)
+  .then(() => {
+    console.log("MongoDB connected");
+    app.listen(port, () => {
+        console.log(`Server is listening at ${port}`)
+    })  
+  })
+  .catch(err => console.error("MongoDB connection error:", err));
