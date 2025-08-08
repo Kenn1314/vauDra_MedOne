@@ -23,7 +23,7 @@ app.use('/object', keyRoute);
 
 mongoose.connect(DB_CONNECTION_URI)
   .then(() => {
-    console.log("MongoDB connected");
+    console.log("MongoDB connected nicely...");
     app.listen(port, () => {
         console.log(`Server is listening at ${port}`)
     })  
