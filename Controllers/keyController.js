@@ -3,7 +3,7 @@ const moment = require("moment");
 
 const insertKeyValue = async (req, res) => {
     try {
-        let timestamp = moment().unix();
+        let timestamp = Date.now();
         let req_data = req.body;
 
         if (Object.keys(req_data).length != 1) {
@@ -14,7 +14,7 @@ const insertKeyValue = async (req, res) => {
         let value = req_data[key];
 
         const result = await KeyModel.create({key, value, timestamp});
-        console.log("Upsert result: ", result)
+        // console.log("Upsert result: ", result)
 
         return res.status(200).json({"status": "ok", key, value, timestamp})
     } catch (err) {
