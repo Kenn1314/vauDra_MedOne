@@ -21,6 +21,10 @@ const DB_CONNECTION_URI = process.env.MONGO_DB_URI;
 
 app.use('/object', keyRoute);
 
+app.use((req, res) => {
+  return res.status(404).json({"status": "err", "msg": "Route not found !"})
+});
+
 mongoose.connect(DB_CONNECTION_URI)
   .then(() => {
     console.log("MongoDB connected nicely...");

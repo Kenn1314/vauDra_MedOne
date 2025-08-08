@@ -4,13 +4,13 @@ var apiURL = "http://localhost:5555";
 
 (async () => {
     let key = "mykey";
-    let value = "value4";
+    let value = {"test": 1, "haha": 2};
     let timestamp = 1754672673;
 
     try {
         await store_key_value(key, value);
         await get_value_from_key(key);
-        await get_value_from_key_and_timestamp(key, timestamp);
+        // await get_value_from_key_and_timestamp(key, timestamp);
     } catch (err) {
         console.log("Main error: ", err)
     }
