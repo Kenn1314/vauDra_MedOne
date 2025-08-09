@@ -3,7 +3,7 @@ const moment = require("moment");
 
 const insertKeyValue = async (req, res) => {
     try {
-        let timestamp = Date.now();
+        let timestamp = moment().unix()
         let req_data = req.body;
 
         if (Object.keys(req_data).length != 1) {

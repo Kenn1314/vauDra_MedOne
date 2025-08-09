@@ -6,4 +6,4 @@ const keyStoreSchema = new mongoose.Schema({
   timestamp: { type: Number, required: true},
 });
 
-module.exports = mongoose.model('KeyStore', keyStoreSchema);
+module.exports = mongoose.model('KeyStore', keyStoreSchema, 'KeyStore');
